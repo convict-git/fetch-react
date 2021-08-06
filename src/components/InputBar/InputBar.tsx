@@ -12,6 +12,7 @@ const InputBar = ({
   React.useEffect(() => {
     onChangeHandler(output);
   }, [output, onChangeHandler]);
+
   return (
     <>
       <fieldset>
