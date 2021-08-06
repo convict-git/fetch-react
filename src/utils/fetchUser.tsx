@@ -1,6 +1,7 @@
+import { Handle } from '../types/Handle';
 import { User } from '../types/User';
 
-const fetchUser = async (handle: string): Promise<User> => {
+const fetchUser = async (handle: Handle): Promise<User> => {
   return window
     .fetch(`https://codeforces.com/api/user.info?handles=${handle};`)
     .then((r) => {
