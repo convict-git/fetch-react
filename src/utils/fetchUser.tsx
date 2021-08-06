@@ -10,9 +10,9 @@ const fetchUser = async (handle: Handle): Promise<User> => {
     .then((rJson) => {
       const resUser: User = {
         handle,
-        rating: rJson.result.data[0].maxRating,
-        rank: rJson.result.data[0].maxRank,
-        img: rJson.result.data[0].titlePhoto,
+        rating: rJson.result[0].maxRating,
+        rank: rJson.result[0].maxRank,
+        img: rJson.result[0].titlePhoto,
       };
       return resUser;
     });
