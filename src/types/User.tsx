@@ -2,7 +2,7 @@ import { Handle } from './Handle';
 
 export interface User {
   handle: Handle;
-  rank: number;
+  rank: string;
   rating: string;
   img: string;
 }
