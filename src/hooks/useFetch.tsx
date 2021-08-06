@@ -1,13 +1,10 @@
 import React from 'react';
 import { FetchReturn } from '../types/FetchReturn';
 
-export const useFetch = <InputType, RetType>({
-  input,
-  fetchMethod,
-}: {
-  input: InputType;
-  fetchMethod: (_: InputType) => Promise<RetType>;
-}) => {
+export function useFetch<InputType, RetType>(
+  input: InputType,
+  fetchMethod: (_: InputType) => Promise<RetType>
+) {
   const [state, setState] = React.useState<FetchReturn<RetType>>({
     data: null,
     status: 'fetching',
@@ -15,6 +12,7 @@ export const useFetch = <InputType, RetType>({
   });
 
   React.useEffect(() => {
+    console.log("I'm called!");
     let denied = false;
     fetchMethod(input)
       .then((value: RetType) => {
@@ -24,6 +22,7 @@ export const useFetch = <InputType, RetType>({
               ...prevState,
               data: value,
               status: 'ok',
+              error: null,
             };
           });
         }
@@ -42,6 +41,6 @@ export const useFetch = <InputType, RetType>({
     return () => {
       denied = true;
     };
-  });
+  }, [input, fetchMethod]);
   return state;
-};
+}
