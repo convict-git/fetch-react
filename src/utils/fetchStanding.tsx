@@ -14,17 +14,13 @@ const fetchStanding = async (
       return r.json();
     })
     .then((rJson) => {
-      const rankList: Array<RankRow> = rJson.result.rows.reduce(
-        (prevState: Array<RankRow>, row: any) => {
-          const elem: { handle: Handle; rank: number } = {
-            handle: row.party.members[0].handle as Handle,
-            rank: row.rank as number,
-          };
-          prevState.push(elem);
-          return prevState;
-        },
-        []
-      );
+      const rankList: Array<RankRow> = rJson.result.rows.map((row: any) => {
+        const elem: RankRow = {
+          handle: row.party.members[0].handle as Handle,
+          rank: row.rank as number,
+        };
+        return elem;
+      });
 
       const res: Standing = {
         constestId,
