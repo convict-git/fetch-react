@@ -15,10 +15,10 @@ export const useFetch = <InputType, RetType>({
   });
 
   React.useEffect(() => {
-    let abort = false;
+    let denied = false;
     fetchMethod(input)
       .then((value: RetType) => {
-        if (!abort) {
+        if (!denied) {
           setState((prevState) => {
             return {
               ...prevState,
@@ -29,7 +29,7 @@ export const useFetch = <InputType, RetType>({
         }
       })
       .catch((e: string) => {
-        if (!abort) {
+        if (!denied) {
           setState((prevState) => {
             return {
               ...prevState,
@@ -40,7 +40,7 @@ export const useFetch = <InputType, RetType>({
         }
       });
     return () => {
-      abort = true;
+      denied = true;
     };
   });
   return state;

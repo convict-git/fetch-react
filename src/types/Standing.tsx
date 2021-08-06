@@ -6,7 +6,7 @@ export interface RankRow {
 }
 
 export interface Standing {
-  constestId: number;
+  contestId: number;
   from: number;
   count: number;
   rankList: Array<RankRow>;

@@ -1,23 +1,16 @@
 import { User } from '../../../types/User';
-import { RankRow } from '../../../types/Standing';
 
-const ContestantCard = ({
-  user,
-  rankRow,
-}: {
-  user: User;
-  rankRow: RankRow;
-}) => {
+export const ContestantCard = (user: User) => {
   return (
     <div>
-      <div>
-        {rankRow.handle} {rankRow.rank}
-      </div>
-      <div>
-        {user.handle} {user.rank} {user.rating}
-        <img src={user.img} alt={`${user.handle}'s img`}></img>
-      </div>
+      {user.handle} {user.rank} {user.rating}
+      <img src={user.img} alt={`${user.handle}'s img`}></img>
     </div>
   );
 };
+
+export const ContestantCardWait = () => {
+  return <div></div>;
+};
+
 export default ContestantCard;
