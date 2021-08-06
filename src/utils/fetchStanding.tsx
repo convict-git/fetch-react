@@ -8,7 +8,7 @@ export const fetchStanding = async (
 ): Promise<Standing> => {
   return window
     .fetch(
-      `https://codeforces.com/api/contest.standings?contestId=${contestId}&from=${0}&count=${5}&showUnofficial=true`
+      `https://codeforces.com/api/contest.standings?contestId=${contestId}&from=${1}&count=${5}`
     )
     .then((r) => {
       return r.json();
@@ -19,7 +19,6 @@ export const fetchStanding = async (
           handle: row.party.members[0].handle as Handle,
           rank: row.rank as number,
         };
-        console.log(elem);
         return elem;
       });
 
