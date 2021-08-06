@@ -1,22 +1,40 @@
 import React from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
+import { FetchStandingArg } from '../../utils/fetchStanding';
 
 const InputBar = ({
   onChangeHandler,
 }: {
-  onChangeHandler: (_: string) => void;
+  onChangeHandler: (_: FetchStandingArg) => void;
 }) => {
-  const [input, setInput] = React.useState<string>('');
-  const output = useDebounce(input);
+  const [inputContestId, setInputContestId] = React.useState<number>(1548);
+  const [from, setFrom] = React.useState<number>(1);
+  const [count, setCount] = React.useState<number>(5);
+
+  const contestId = useDebounce<number>(inputContestId, 1548);
 
   React.useEffect(() => {
-    onChangeHandler(output);
-  }, [output, onChangeHandler]);
+    onChangeHandler({ contestId, from, count });
+  }, [contestId, from, count]);
 
   return (
     <>
       <fieldset>
-        <input value={input} onChange={(e) => setInput(e.target.value)}></input>
+        <input
+          value={inputContestId}
+          type="number"
+          onChange={(e) => setInputContestId(parseInt(e.target.value.trim()))}
+        ></input>
+        <input
+          value={from}
+          type="number"
+          onChange={(e) => setFrom(parseInt(e.target.value.trim()))}
+        ></input>
+        <input
+          value={count}
+          type="number"
+          onChange={(e) => setCount(parseInt(e.target.value.trim()))}
+        ></input>
       </fieldset>
     </>
   );

@@ -1,14 +1,20 @@
 import { Handle } from '../types/Handle';
 import { RankRow, Standing } from '../types/Standing';
 
-export type ContestId = number;
+export interface FetchStandingArg {
+  contestId: number;
+  from: number;
+  count: number;
+}
 
-export const fetchStanding = async (
-  contestId: ContestId
-): Promise<Standing> => {
+export const fetchStanding = async ({
+  contestId,
+  from,
+  count,
+}: FetchStandingArg): Promise<Standing> => {
   return window
     .fetch(
-      `https://codeforces.com/api/contest.standings?contestId=${contestId}&from=${1}&count=${5}`
+      `https://codeforces.com/api/contest.standings?contestId=${contestId}&from=${from}&count=${count}`
     )
     .then((r) => {
       return r.json();
@@ -24,6 +30,8 @@ export const fetchStanding = async (
 
       const res: Standing = {
         contestId,
+        from,
+        count,
         rankList,
       };
       return res;

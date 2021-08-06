@@ -12,11 +12,21 @@ export function useFetch<InputType, RetType>(
   });
 
   React.useEffect(() => {
+    console.log('Called useFetch fetch');
     let denied = false;
+    if (!denied) {
+      setState({
+        ...state,
+        status: 'fetching',
+        error: null,
+      });
+    }
+
     fetchMethod(input)
       .then((value: RetType) => {
         if (!denied) {
           setState({
+            ...state,
             data: value,
             status: 'ok',
             error: null,
@@ -26,6 +36,7 @@ export function useFetch<InputType, RetType>(
       .catch((e: string) => {
         if (!denied) {
           setState({
+            ...state,
             data: null,
             status: 'ok',
             error: `Error caught: ${e}`,
@@ -35,6 +46,6 @@ export function useFetch<InputType, RetType>(
     return () => {
       denied = true;
     };
-  }, [input, fetchMethod]);
+  }, [input]);
   return state;
 }
