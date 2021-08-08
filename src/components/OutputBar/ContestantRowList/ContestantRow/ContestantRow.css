@@ -1,0 +1,14 @@
+.contestant-row {
+  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rank-side {
+  width: 20px;
+  text-align: center;
+}
+
+#ranked-1 {
+  background-color: teal;
+}

@@ -1,0 +1,7 @@
+.contestant-card {
+  height: 100px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+}

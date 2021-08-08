@@ -1,5 +1,6 @@
 import { RankRow } from '../../../types/Standing';
 import { ContestantRow } from './ContestantRow/ContestantRow';
+
 import './ContestantRowList.css';
 
 export const ContestantRowList = ({
@@ -10,5 +11,5 @@ export const ContestantRowList = ({
   const retElement = rankRowList.map((rankRow, index) => {
     return <ContestantRow key={index} rankRow={rankRow} />;
   });
-  return <>{retElement}</>;
+  return <div className="contestant-row-list">{retElement}</div>;
 };

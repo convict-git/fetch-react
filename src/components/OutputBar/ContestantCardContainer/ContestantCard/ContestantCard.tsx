@@ -1,9 +1,11 @@
-import { Handle } from '../../../types/Handle';
-import { User } from '../../../types/User';
+import { Handle } from '../../../../types/Handle';
+import { User } from '../../../../types/User';
 
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../../../../hooks/useFetch';
 
-import fetchUser from '../../../utils/fetchUser';
+import fetchUser from '../../../../utils/fetchUser';
+
+import './ContestantCard.css';
 
 export const ContestantCard = ({ handle }: { handle: Handle }) => {
   const state = useFetch<Handle, User>(handle, fetchUser);
@@ -22,9 +24,5 @@ export const ContestantCard = ({ handle }: { handle: Handle }) => {
       </div>
     );
   }
-  return elem;
-};
-
-export const ContestantCardWait = () => {
-  return <div></div>;
+  return <div className="contestant-card"> {elem}</div>;
 };

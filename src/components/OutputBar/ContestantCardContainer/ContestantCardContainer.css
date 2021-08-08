@@ -1,0 +1,11 @@
+.contestant-card-container {
+  display: grid;
+  width: 900px;
+  height: auto;
+  margin: 0px 10px;
+  min-width: fit-content;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 10px;
+  justify-items: center;
+  z-index: 0;
+}
