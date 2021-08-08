@@ -1,13 +1,17 @@
 import { Handle } from '../types/Handle';
 import { User } from '../types/User';
+import { fetchRetry } from './fetchRetry';
 
 const fetchUser = async (handle: Handle): Promise<User> => {
-  return window
-    .fetch(`https://codeforces.com/api/user.info?handles=${handle};`)
-    .then((r) => {
+  return fetchRetry(
+    `https://codeforces.com/api/user.info?handles=${handle};`,
+    500,
+    5
+  )
+    .then((r: any) => {
       return r.json();
     })
-    .then((rJson) => {
+    .then((rJson: any) => {
       const resUser: User = {
         handle,
         rating: rJson.result[0].maxRating,

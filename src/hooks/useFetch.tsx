@@ -16,7 +16,7 @@ export function useFetch<InputType, RetType>(
     let denied = false;
     if (!denied) {
       setState({
-        ...state,
+        data: null,
         status: 'fetching',
         error: null,
       });
@@ -26,7 +26,6 @@ export function useFetch<InputType, RetType>(
       .then((value: RetType) => {
         if (!denied) {
           setState({
-            ...state,
             data: value,
             status: 'ok',
             error: null,
@@ -36,7 +35,6 @@ export function useFetch<InputType, RetType>(
       .catch((e: string) => {
         if (!denied) {
           setState({
-            ...state,
             data: null,
             status: 'ok',
             error: `Error caught: ${e}`,

@@ -1,0 +1,30 @@
+.input-container {
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  background-color: thistle;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px 20px 0px;
+  border-bottom: 2px black solid;
+}
+
+#contest-id-input,
+#from-input,
+#count-input {
+  width: 80px;
+  height: 60px;
+  font-size: large;
+  border-radius: 20px;
+  text-align: center;
+}
+
+div#seperator {
+  height: 106px; /* Just put whatever comes out the total height of container*/
+}

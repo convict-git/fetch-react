@@ -2,6 +2,8 @@ import React from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 import { FetchStandingArg } from '../../utils/fetchStanding';
 
+import './InputBar.css';
+
 const InputBar = ({
   onChangeHandler,
 }: {
@@ -19,23 +21,35 @@ const InputBar = ({
 
   return (
     <>
-      <fieldset>
-        <input
-          value={inputContestId}
-          type="number"
-          onChange={(e) => setInputContestId(parseInt(e.target.value.trim()))}
-        ></input>
-        <input
-          value={from}
-          type="number"
-          onChange={(e) => setFrom(parseInt(e.target.value.trim()))}
-        ></input>
-        <input
-          value={count}
-          type="number"
-          onChange={(e) => setCount(parseInt(e.target.value.trim()))}
-        ></input>
-      </fieldset>
+      <div className="input-container">
+        <div>
+          <input
+            id="contest-id-input"
+            value={inputContestId}
+            type="number"
+            onChange={(e) =>
+              setInputContestId(parseInt(e.target.value.trim()) || 1)
+            }
+          ></input>
+        </div>
+        <div>
+          <input
+            id="from-input"
+            value={from}
+            type="number"
+            onChange={(e) => setFrom(parseInt(e.target.value.trim()) || 1)}
+          ></input>
+        </div>
+        <div>
+          <input
+            id="count-input"
+            value={count}
+            type="number"
+            onChange={(e) => setCount(parseInt(e.target.value.trim()) || 1)}
+          ></input>
+        </div>
+      </div>
+      <div id="seperator" />
     </>
   );
 };

@@ -1,0 +1,11 @@
+div#output-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.output-row-list-container {
+  margin-left: 100px;
+}
