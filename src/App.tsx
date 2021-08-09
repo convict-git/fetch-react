@@ -1,15 +1,18 @@
 import React from 'react';
-import './style.css';
+
+import { CONST } from './shared/constansts';
 
 import InputBar from './components/InputBar/InputBar';
 import { OutputBar } from './components/OutputBar/OutputBar';
 import { FetchStandingArg } from './utils/fetchStanding';
 
+import './style.css';
+
 export const App = () => {
   const [standingInput, setStandingInput] = React.useState<FetchStandingArg>({
-    contestId: 1548,
-    from: 1,
-    count: 5,
+    contestId: CONST.contestId,
+    from: CONST.from,
+    count: CONST.count,
   });
 
   function onChangeHandler(input: FetchStandingArg) {
