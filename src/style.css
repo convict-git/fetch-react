@@ -29,7 +29,7 @@ body {
     rgb(161, 122, 211),
     rgb(55, 18, 104)
   );
-  animation: bg-animation 0.5s infinite;
+  animation: bg-animation 1s infinite;
 }
 
 @keyframes bg-animation {

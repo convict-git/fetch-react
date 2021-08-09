@@ -1,28 +1,32 @@
-import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 
 import { fetchStanding, FetchStandingArg } from '../../utils/fetchStanding';
-import { Standing } from '../../types/Standing';
+import { RankRow, Standing } from '../../types/Standing';
 
-import './OutputBar.css';
 import { ContestantRowList } from './ContestantRowList/ContestantRowList';
 import { ContestantCardContainer } from './ContestantCardContainer/ContestantCardContainer';
+
+import './OutputBar.css';
 
 export const OutputBar = ({ inputProps }: { inputProps: FetchStandingArg }) => {
   console.log(inputProps.contestId, inputProps.from, inputProps.count);
   const state = useFetch<FetchStandingArg, Standing>(inputProps, fetchStanding);
+  const fakeArray: Array<RankRow> = Array(inputProps.count as number)
+    .fill()
+    .map((_) => {
+      return (_ += 1), { handle: '', rank: 0 };
+    });
 
   return (
     <div id="output-wrapper">
       <div className="output-row-list-container">
         {state.error ? (
           <div>{state.error}</div>
-        ) : state.status === 'fetching' ? (
-          <div>{state.status}</div>
-        ) : !state.data ? (
-          <div>Failed somehow</div>
         ) : (
-          <ContestantRowList rankRowList={state.data.rankList} />
+          <ContestantRowList
+            isFetching={state.status === 'fetching'}
+            rankRowList={state.data ? state.data.rankList : fakeArray}
+          />
         )}
       </div>
       {state.data ? (

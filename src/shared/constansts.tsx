@@ -3,5 +3,5 @@ export const CONST = {
   from: 1,
   count: 9,
   retryCount: 100,
-  retryTime: 200,
+  retryTime: 2000,
 };

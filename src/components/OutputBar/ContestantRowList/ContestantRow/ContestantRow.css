@@ -1,17 +1,22 @@
-.contestant-row {
+.contestant-row-container {
+  border-radius: 30px;
+  height: 60px;
+  overflow: hidden;
   background: linear-gradient(rgb(32, 4, 68), rgb(43, 13, 83));
+}
+
+.contestant-row {
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
   align-items: center;
-  height: 60px;
-  text-shadow: 0px 0px 10px black;
-  border-radius: 30px;
+  padding: 20px 50px;
+  height: 100%;
   font-size: 1.2em;
 }
 
 .rank-side {
   text-align: center;
+  text-shadow: 0px 0px 5px black;
   font-size: 2em;
 }
 
@@ -19,8 +24,7 @@
   background: linear-gradient(rgb(1, 112, 112), rgb(9, 129, 129));
 }
 
-.contestant-row:hover,
-#ranked-1:hover {
+.contestant-row-container:hover {
   background: whitesmoke;
   color: rgb(32, 4, 68);
   text-shadow: 0px 0px 1px black;
