@@ -27,6 +27,12 @@ export const ContestantCard = ({
       <div>
         {rank ? <div className="rank-card-view">{rank}</div> : {}}
         <div className="contestant-card">
+          <a
+            className="covered-link"
+            href={`https://codeforces.com/profile/${user?.handle}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
           <div className="overlay-img"></div>
           <img
             className="card-img"

@@ -1,4 +1,5 @@
 .contestant-row-container {
+  position: relative;
   border-radius: 30px;
   height: 60px;
   overflow: hidden;

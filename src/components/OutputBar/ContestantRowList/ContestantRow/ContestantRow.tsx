@@ -14,10 +14,18 @@ export const ContestantRow = ({
       {isFetching ? (
         <div className="fetching-state"></div>
       ) : (
-        <div className="contestant-row" id={`ranked-${rankRow.rank}`}>
-          <div className="rank-side">{rankRow.rank}</div>
-          <div className="handle-side">{rankRow.handle}</div>
-        </div>
+        <>
+          <a
+            className="covered-link"
+            href={`https://codeforces.com/profile/${rankRow.handle}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+          <div className="contestant-row" id={`ranked-${rankRow.rank}`}>
+            <div className="rank-side">{rankRow.rank}</div>
+            <div className="handle-side">{rankRow.handle}</div>
+          </div>
+        </>
       )}
     </div>
   );
