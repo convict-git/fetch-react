@@ -1,10 +1,13 @@
 .card-holder {
+  position: relative;
   height: 300px;
   width: 230px;
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
 }
 
 img.card-img {
@@ -23,14 +26,32 @@ img.card-img {
 
 .contestant-card {
   position: relative;
+  overflow: hidden;
 }
 
 .rank-card-view {
   position: absolute;
   font-size: 3em;
   transform: translate3d(-10px, -10px, 0px);
+  z-index: 1;
 }
 
 .card-rank {
   text-transform: capitalize;
+}
+
+.overlay-img {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  opacity: 0.65;
+  background: linear-gradient(
+    30deg,
+    rgb(21, 7, 39),
+    rgb(21, 7, 39),
+    rgb(44, 16, 82),
+    rgb(112, 61, 179),
+    rgb(165, 130, 212),
+    rgb(206, 181, 238)
+  );
 }

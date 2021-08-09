@@ -7,14 +7,22 @@ export const fetchRetry = async (
   delay: number,
   tries: number
 ): Promise<any> => {
-  console.log(`inside fetchRetry() : ${url} ${delay} ${tries}`);
-  function onError(err: any) {
-    const triesLeft = tries - 1;
-    console.log(`inside orError() : ${url} ${delay} ${tries} ${triesLeft}`);
-    if (!triesLeft) {
-      throw err;
+  let ok = false;
+  do {
+    try {
+      const response = await wait(500).then(() => fetch(url));
+      if (!response.ok) {
+        ok = false;
+      } else {
+        ok = true;
+        return Promise.resolve(response);
+      }
+    } catch {
+      ok = false;
     }
-    return wait(delay).then(() => fetchRetry(url, delay, triesLeft));
-  }
-  return window.fetch(url).catch(onError);
+    tries = tries - 1;
+    if (tries === 0) {
+      return Promise.reject(`Failed`);
+    }
+  } while (!ok);
 };

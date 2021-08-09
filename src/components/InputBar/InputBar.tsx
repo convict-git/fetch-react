@@ -22,7 +22,8 @@ const InputBar = ({
   return (
     <>
       <div className="input-container">
-        <div>
+        <div className="input-holder">
+          <label htmlFor="contest-id-input">Contest ID</label>
           <input
             id="contest-id-input"
             value={inputContestId}
@@ -32,7 +33,8 @@ const InputBar = ({
             }
           ></input>
         </div>
-        <div>
+        <div className="input-holder">
+          <label htmlFor="from-input">From rank</label>
           <input
             id="from-input"
             value={from}
@@ -40,7 +42,8 @@ const InputBar = ({
             onChange={(e) => setFrom(parseInt(e.target.value.trim()) || 1)}
           ></input>
         </div>
-        <div>
+        <div className="input-holder">
+          <label htmlFor="count-input">Count</label>
           <input
             id="count-input"
             value={count}

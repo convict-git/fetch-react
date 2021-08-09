@@ -6,7 +6,7 @@ const fetchUser = async (handle: Handle): Promise<User> => {
   return fetchRetry(
     `https://codeforces.com/api/user.info?handles=${handle};`,
     500,
-    5
+    10
   )
     .then((r: any) => {
       return r.json();

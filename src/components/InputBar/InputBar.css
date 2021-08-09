@@ -6,25 +6,44 @@
   left: 0px;
   right: 0px;
   width: 100%;
-  background-color: thistle;
+  background-color: rgb(32, 4, 68);
   display: flex;
   gap: 40px;
   justify-content: center;
   width: 100%;
   padding: 20px 0px 20px 0px;
-  border-bottom: 2px black solid;
+  border-bottom: 2px whitesmoke solid;
 }
 
-#contest-id-input,
-#from-input,
-#count-input {
-  width: 80px;
-  height: 60px;
+.input-holder {
+  position: relative;
+}
+.input-holder label {
+  position: absolute;
+  left: 50%;
+  width: max-content;
+  top: -12px;
+  transform: translateX(-50%);
+  color: whitesmoke;
+  padding: 3px;
+  background-color: rgb(32, 4, 68);
+}
+
+.input-holder input::selection {
+  border-color: cyan;
+}
+
+.input-container input {
+  width: 100px;
+  height: 40px;
   font-size: large;
   border-radius: 20px;
   text-align: center;
+  background: none;
+  color: whitesmoke;
+  border: 3px solid whitesmoke;
 }
 
 div#seperator {
-  height: 106px; /* Just put whatever comes out the total height of container*/
+  height: 88px; /* Just put whatever comes out the total height of container*/
 }

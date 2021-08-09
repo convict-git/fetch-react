@@ -24,17 +24,20 @@ export const ContestantCard = ({
   } else {
     const user = state.data;
     elem = (
-      <div className="contestant-card">
+      <div>
+        <div className="overlay-img"></div>
         {rank ? <div className="rank-card-view">{rank}</div> : {}}
-        <img
-          className="card-img"
-          src={user?.img}
-          alt={`${user?.handle}'s img`}
-        ></img>
-        <div className="info-container">
-          <div className="card-handle">{user?.handle}</div>
-          <div className="card-rank">{user?.rank}</div>
-          <div className="card-rating">{user?.rating}</div>
+        <div className="contestant-card">
+          <img
+            className="card-img"
+            src={user?.img}
+            alt={`${user?.handle}'s img`}
+          ></img>
+          <div className="info-container">
+            <div className="card-handle">{user?.handle}</div>
+            <div className="card-rank">{user?.rank}</div>
+            <div className="card-rating">{user?.rating}</div>
+          </div>
         </div>
       </div>
     );

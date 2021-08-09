@@ -1,9 +1,13 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: content-box;
   padding: 0px;
   margin: 0px;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
 }
+
 body {
-  background-color: whitesmoke;
+  background: black;
+  color: whitesmoke;
 }

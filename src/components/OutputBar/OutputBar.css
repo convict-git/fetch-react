@@ -1,7 +1,9 @@
 div#output-wrapper {
   height: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin: 20px;
+  margin: 0px;
+  padding: 0px;
 }
