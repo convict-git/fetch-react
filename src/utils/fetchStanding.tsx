@@ -1,3 +1,5 @@
+import { CONST } from '../shared/constansts';
+
 import { Handle } from '../types/Handle';
 import { RankRow, Standing } from '../types/Standing';
 import { fetchRetry } from './fetchRetry';
@@ -15,8 +17,8 @@ export const fetchStanding = async ({
 }: FetchStandingArg): Promise<Standing> => {
   return fetchRetry(
     `https://codeforces.com/api/contest.standings?contestId=${contestId}&from=${from}&count=${count}`,
-    500,
-    10
+    CONST.retryTime,
+    CONST.retryCount
   )
     .then((r) => {
       return r.json();

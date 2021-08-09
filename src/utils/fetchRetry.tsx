@@ -10,7 +10,7 @@ export const fetchRetry = async (
   let ok = false;
   do {
     try {
-      const response = await wait(500).then(() => fetch(url));
+      const response = await wait(delay).then(() => fetch(url));
       if (!response.ok) {
         ok = false;
       } else {

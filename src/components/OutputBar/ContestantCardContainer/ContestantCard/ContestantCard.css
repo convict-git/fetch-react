@@ -44,6 +44,7 @@ img.card-img {
   margin-top: -5px;
   padding: 5px 15px;
   border-radius: 20px;
+  font-size: 1.05em;
 }
 
 .overlay-img {

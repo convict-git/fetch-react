@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 import { FetchStandingArg } from '../../utils/fetchStanding';
+import { CONST } from '../../shared/constansts';
 
 import './InputBar.css';
 
@@ -9,15 +10,25 @@ const InputBar = ({
 }: {
   onChangeHandler: (_: FetchStandingArg) => void;
 }) => {
-  const [inputContestId, setInputContestId] = React.useState<number>(1548);
-  const [from, setFrom] = React.useState<number>(1);
-  const [count, setCount] = React.useState<number>(5);
+  const [inputContestId, setInputContestId] = React.useState<number>(
+    CONST.contestId
+  );
+  const [from, setFrom] = React.useState<number>(CONST.from);
+  const [count, setCount] = React.useState<number>(CONST.count);
 
-  const contestId = useDebounce<number>(inputContestId, 1548);
+  const contestId = useDebounce<number>(inputContestId, CONST.from);
 
   React.useEffect(() => {
     onChangeHandler({ contestId, from, count });
   }, [contestId, from, count]);
+
+  function takeProperValue(
+    e: React.ChangeEvent<HTMLInputElement>,
+    setMethod: any
+  ) {
+    const value = parseInt(e.target.value.trim());
+    if (value >= 0) setMethod(value);
+  }
 
   return (
     <>
@@ -26,29 +37,27 @@ const InputBar = ({
           <label htmlFor="contest-id-input">Contest ID</label>
           <input
             id="contest-id-input"
-            value={inputContestId}
+            defaultValue={inputContestId}
             type="number"
-            onChange={(e) =>
-              setInputContestId(parseInt(e.target.value.trim()) || 1)
-            }
+            onChange={(e) => takeProperValue(e, setInputContestId)}
           ></input>
         </div>
         <div className="input-holder">
           <label htmlFor="from-input">From rank</label>
           <input
             id="from-input"
-            value={from}
+            defaultValue={from}
             type="number"
-            onChange={(e) => setFrom(parseInt(e.target.value.trim()) || 1)}
+            onChange={(e) => takeProperValue(e, setFrom)}
           ></input>
         </div>
         <div className="input-holder">
           <label htmlFor="count-input">Count</label>
           <input
             id="count-input"
-            value={count}
+            defaultValue={count}
             type="number"
-            onChange={(e) => setCount(parseInt(e.target.value.trim()) || 1)}
+            onChange={(e) => takeProperValue(e, setCount)}
           ></input>
         </div>
       </div>
