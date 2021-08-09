@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 *,
 *::after,
 *::before {
@@ -5,6 +7,7 @@
   padding: 0px;
   margin: 0px;
   /* outline: 1px solid black; */
+  font-family: 'Lato', sans-serif;
 }
 
 body {

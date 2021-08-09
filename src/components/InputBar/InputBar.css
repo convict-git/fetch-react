@@ -19,10 +19,11 @@
   position: relative;
 }
 .input-holder label {
+  font-size: 0.8em;
   position: absolute;
   left: 50%;
   width: max-content;
-  top: -12px;
+  top: -10px;
   transform: translateX(-50%);
   color: whitesmoke;
   padding: 3px;
