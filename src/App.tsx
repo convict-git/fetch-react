@@ -15,7 +15,8 @@ const initState: InputState = {
 };
 
 const getInitState = (): InputState => {
-  return JSON.parse(window.localStorage.getItem('initObj') || '') || initState;
+  const strObj = window.localStorage.getItem('initObj');
+  return strObj ? JSON.parse(strObj) : initState;
 };
 
 export const App = () => {
