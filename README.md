@@ -1,7 +1,5 @@
-```bash
-npx degit https://github.com/convict-git/react-typescript-boilerplate cool-app
+- Uses React + TSX + CSS (Flexbox+Grid for responsiveness)
+- Custom hooks for debounce and retry fetches.
+- Local storage usage(input stays on refresh)
 
-cd cool-app && npm install
-```
-
-To understand how this works, checkout the Playlist: [Codevolution's React Typescript Webpack Setup](https://www.youtube.com/watch?v=Elpu7CIuqjY)
+[Deployed here](https://convict-git.github.io/fetch-react/)
