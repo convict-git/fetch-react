@@ -1,4 +1,5 @@
 import { RankRow } from '../../../../types/Standing';
+import { CoverLink } from '../../../../utils/CoverLink';
 
 import './ContestantRow.css';
 
@@ -15,12 +16,9 @@ export const ContestantRow = ({
         <div className="fetching-state"></div>
       ) : (
         <>
-          <a
-            className="covered-link"
-            href={`https://codeforces.com/profile/${rankRow.handle}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
+          <CoverLink
+            link={`https://codeforces.com/profile/${rankRow.handle}`}
+          />
           <div className="contestant-row" id={`ranked-${rankRow.rank}`}>
             <div className="rank-side">{rankRow.rank}</div>
             <div className="handle-side">{rankRow.handle}</div>

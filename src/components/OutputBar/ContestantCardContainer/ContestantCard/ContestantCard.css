@@ -62,3 +62,8 @@ img.card-img {
     rgb(206, 181, 238)
   );
 }
+
+.card-holder:hover {
+  border: 2px solid rgb(32, 4, 68);
+  box-shadow: 0 0 8px 2px black;
+}

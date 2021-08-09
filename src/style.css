@@ -49,11 +49,3 @@ body {
     background-position: left;
   }
 }
-
-.covered-link {
-  text-decoration: none;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 3;
-}
