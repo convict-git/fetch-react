@@ -18,7 +18,7 @@ export const ContestantCard = ({
 
   let elem: JSX.Element;
   if (state.error) {
-    elem = <div className="error-state">{state.error}</div>;
+    elem = <div className="error-state"></div>;
   } else if (state.status === 'fetching') {
     elem = <div className="fetching-state"></div>;
   } else {

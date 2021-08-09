@@ -30,4 +30,5 @@
   color: rgb(32, 4, 68);
   text-shadow: 0px 0px 1px black;
   border: 2px solid rgb(32, 4, 68);
+  box-shadow: 0 0 8px 2px black;
 }

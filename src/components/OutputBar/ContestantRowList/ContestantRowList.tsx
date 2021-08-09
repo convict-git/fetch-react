@@ -10,9 +10,7 @@ export const ContestantRowList = ({
   rankRowList: Array<RankRow>;
   isFetching: boolean;
 }): JSX.Element => {
-  console.log(rankRowList.length);
   const retElement = rankRowList.map((rankRow, index) => {
-    console.log(rankRow, index);
     return (
       <ContestantRow key={index} isFetching={isFetching} rankRow={rankRow} />
     );

@@ -2,29 +2,40 @@ import React from 'react';
 
 import { CONST } from './shared/constansts';
 
-import InputBar from './components/InputBar/InputBar';
+import { InputState, InputBar } from './components/InputBar/InputBar';
 import { OutputBar } from './components/OutputBar/OutputBar';
-import { FetchStandingArg } from './utils/fetchStanding';
 
 import './style.css';
 
-export const App = () => {
-  const [standingInput, setStandingInput] = React.useState<FetchStandingArg>({
-    contestId: CONST.contestId,
-    from: CONST.from,
-    count: CONST.count,
-  });
+const initState: InputState = {
+  contestId: CONST.contestId,
+  from: CONST.from,
+  count: CONST.count,
+  viewCards: CONST.viewCards,
+};
 
-  function onChangeHandler(input: FetchStandingArg) {
+const getInitState = (): InputState => {
+  return JSON.parse(window.localStorage.getItem('initObj') || '') || initState;
+};
+
+export const App = () => {
+  const [standingInput, setStandingInput] =
+    React.useState<InputState>(getInitState);
+
+  function onChangeHandler(input: InputState) {
     setStandingInput({
       ...standingInput,
       ...input,
     });
   }
 
+  React.useEffect(() => {
+    window.localStorage.setItem('initObj', JSON.stringify(standingInput));
+  }, [standingInput]);
+
   return (
     <>
-      <InputBar onChangeHandler={onChangeHandler} />
+      <InputBar onChangeHandler={onChangeHandler} initState={getInitState()} />
       <OutputBar inputProps={standingInput} />
     </>
   );

@@ -34,7 +34,8 @@
   border-color: cyan;
 }
 
-.input-container input {
+.input-container input,
+.flip-show-cards {
   width: 100px;
   height: 40px;
   font-size: large;
@@ -47,4 +48,24 @@
 
 div#seperator {
   height: 88px; /* Just put whatever comes out the total height of container*/
+}
+
+.flip-show-cards {
+  width: 150px;
+}
+
+#show-cards-btn,
+#hide-cards-btn:hover {
+  color: rgb(32, 4, 68);
+  background: whitesmoke;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#hide-cards-btn,
+#show-cards-btn:hover {
+  color: whitesmoke;
+  background: rgb(32, 4, 68);
+  font-size: 1em;
+  cursor: pointer;
 }

@@ -5,11 +5,11 @@ import { RankRow, Standing } from '../../types/Standing';
 
 import { ContestantRowList } from './ContestantRowList/ContestantRowList';
 import { ContestantCardContainer } from './ContestantCardContainer/ContestantCardContainer';
+import { InputState } from '../InputBar/InputBar';
 
 import './OutputBar.css';
 
-export const OutputBar = ({ inputProps }: { inputProps: FetchStandingArg }) => {
-  console.log(inputProps.contestId, inputProps.from, inputProps.count);
+export const OutputBar = ({ inputProps }: { inputProps: InputState }) => {
   const state = useFetch<FetchStandingArg, Standing>(inputProps, fetchStanding);
   const fakeArray: Array<RankRow> = Array(inputProps.count as number)
     .fill()
@@ -29,7 +29,7 @@ export const OutputBar = ({ inputProps }: { inputProps: FetchStandingArg }) => {
           />
         )}
       </div>
-      {state.data ? (
+      {state.data && inputProps.viewCards ? (
         <ContestantCardContainer rankRowList={state.data.rankList} />
       ) : (
         <></>

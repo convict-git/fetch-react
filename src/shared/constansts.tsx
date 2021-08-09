@@ -4,4 +4,5 @@ export const CONST = {
   count: 9,
   retryCount: 100,
   retryTime: 2000,
+  viewCards: false,
 };
