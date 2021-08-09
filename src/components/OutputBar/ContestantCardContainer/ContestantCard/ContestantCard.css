@@ -8,6 +8,7 @@
   justify-content: space-between;
   border: 2px solid whitesmoke;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 img.card-img {
@@ -22,17 +23,15 @@ img.card-img {
   padding: 10px;
   gap: 10px;
   align-items: center;
-}
-
-.contestant-card {
-  position: relative;
-  overflow: hidden;
+  z-index: 2;
+  background-color: rgb(32, 4, 68);
 }
 
 .rank-card-view {
   position: absolute;
   font-size: 3em;
-  transform: translate3d(-10px, -10px, 0px);
+  transform: translate3d(10px, 10px, 0px);
+  text-shadow: 0px 0px 10px black;
   z-index: 1;
 }
 

@@ -18,16 +18,16 @@ export const ContestantCard = ({
 
   let elem: JSX.Element;
   if (state.error) {
-    elem = <div>Error occurred: {state.error}</div>;
+    elem = <div className="error-state">{state.error}</div>;
   } else if (state.status === 'fetching') {
-    elem = <div>Fetching</div>;
+    elem = <div className="fetching-state"></div>;
   } else {
     const user = state.data;
     elem = (
       <div>
-        <div className="overlay-img"></div>
         {rank ? <div className="rank-card-view">{rank}</div> : {}}
         <div className="contestant-card">
+          <div className="overlay-img"></div>
           <img
             className="card-img"
             src={user?.img}
