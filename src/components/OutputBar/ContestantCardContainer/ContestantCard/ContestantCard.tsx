@@ -11,14 +11,18 @@ import { CoverLink } from '../../../../utils/CoverLink';
 export const ContestantCard = ({
   handle,
   rank,
+  isFetchingList,
 }: {
   handle: Handle;
   rank?: number;
-}) => {
+  isFetchingList?: boolean;
+}): JSX.Element => {
   const state = useFetch<Handle, User>(handle, fetchUser);
 
   let elem: JSX.Element;
-  if (state.error) {
+  if (typeof isFetchingList !== 'undefined' && isFetchingList) {
+    elem = <div className="yet-to-fetch"></div>;
+  } else if (state.error) {
     elem = <div className="error-state"></div>;
   } else if (state.status === 'fetching') {
     elem = <div className="fetching-state"></div>;

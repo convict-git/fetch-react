@@ -11,7 +11,7 @@ import './OutputBar.css';
 
 export const OutputBar = ({ inputProps }: { inputProps: InputState }) => {
   const state = useFetch<FetchStandingArg, Standing>(inputProps, fetchStanding);
-  const fakeArray: Array<RankRow> = Array(inputProps.count as number)
+  const fakeArray: Array<RankRow> = Array(inputProps.count)
     .fill()
     .map((_) => {
       return (_ += 1), { handle: '', rank: 0 };
@@ -19,20 +19,25 @@ export const OutputBar = ({ inputProps }: { inputProps: InputState }) => {
 
   return (
     <div id="output-wrapper">
-      <div className="output-row-list-container">
-        {state.error ? (
-          <div>{state.error}</div>
-        ) : (
-          <ContestantRowList
-            isFetching={state.status === 'fetching'}
-            rankRowList={state.data ? state.data.rankList : fakeArray}
-          />
-        )}
-      </div>
-      {state.data && inputProps.viewCards ? (
-        <ContestantCardContainer rankRowList={state.data.rankList} />
+      {state.error ? (
+        <div>{state.error}</div>
       ) : (
-        <></>
+        <>
+          <div className="output-row-list-container">
+            <ContestantRowList
+              isFetching={state.status === 'fetching'}
+              rankRowList={state.data ? state.data.rankList : fakeArray}
+            />
+          </div>
+          {inputProps.viewCards ? (
+            <ContestantCardContainer
+              isFetchingList={state.status === 'fetching'}
+              rankRowList={state.data ? state.data.rankList : fakeArray}
+            />
+          ) : (
+            ''
+          )}
+        </>
       )}
     </div>
   );

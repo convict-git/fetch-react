@@ -18,7 +18,8 @@ body {
 }
 
 .error-state,
-.fetching-state {
+.fetching-state,
+.yet-to-fetch {
   position: relative;
   width: 100%;
   height: 100%;
@@ -38,6 +39,7 @@ body {
   );
   animation: bg-animation 1s infinite;
 }
+
 @keyframes bg-animation {
   0% {
     background-position: left;
@@ -48,4 +50,8 @@ body {
   100% {
     background-position: left;
   }
+}
+
+.yet-to-fetch {
+  background-image: linear-gradient(30deg, rgb(32, 4, 68), rgb(64, 27, 112));
 }
