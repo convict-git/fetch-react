@@ -1,4 +1,4 @@
-div#output-wrapper {
+div#workspace-wrapper {
   height: auto;
   height: auto;
   display: flex;
@@ -9,7 +9,7 @@ div#output-wrapper {
 }
 
 @media screen and (max-width: 1024px) {
-  .output-wrapper {
+  .workspace-wrapper {
     display: none !important;
   }
 }

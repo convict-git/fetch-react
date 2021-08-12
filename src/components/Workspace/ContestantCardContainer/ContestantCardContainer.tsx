@@ -1,6 +1,8 @@
-import './ContestantCardContainer.css';
+import { RankRow } from '../../../types/cftypes';
+
 import { ContestantCard } from './ContestantCard/ContestantCard';
-import { RankRow } from '../../../types/Standing';
+
+import './ContestantCardContainer.css';
 
 export const ContestantCardContainer = ({
   rankRowList,

@@ -1,10 +1,10 @@
 import React from 'react';
-import { FetchReturn } from '../types/FetchReturn';
+import { FetchReturn } from '../types/fetchReturn';
 
 export function useFetch<InputType, RetType>(
   input: InputType,
   fetchMethod: (_: InputType) => Promise<RetType>
-) {
+): FetchReturn<RetType> {
   const [state, setState] = React.useState<FetchReturn<RetType>>({
     data: null,
     status: 'fetching',

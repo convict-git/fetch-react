@@ -1,4 +1,4 @@
-.input-container {
+.header-container {
   overflow: hidden;
   position: fixed;
   z-index: 100;
@@ -34,7 +34,7 @@
   border-color: cyan;
 }
 
-.input-container input,
+.header-container input,
 .flip-show-cards {
   width: 100px;
   height: 40px;

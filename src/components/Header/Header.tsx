@@ -3,7 +3,7 @@ import React from 'react';
 import { useDebounce } from '../../hooks/useDebounce';
 import { CONST } from '../../shared/constansts';
 
-import './InputBar.css';
+import './Header.css';
 
 export interface InputState {
   contestId: number;
@@ -41,7 +41,7 @@ export const InputBar = ({
 
   return (
     <>
-      <div className="input-container">
+      <div className="header-container">
         <div className="input-holder">
           <label htmlFor="contest-id-input">Contest ID</label>
           <input

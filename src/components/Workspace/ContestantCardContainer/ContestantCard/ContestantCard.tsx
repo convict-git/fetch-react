@@ -1,12 +1,11 @@
-import { Handle } from '../../../../types/Handle';
-import { User } from '../../../../types/User';
+import { Handle, User } from '../../../../types/cftypes';
 
 import { useFetch } from '../../../../hooks/useFetch';
 
 import fetchUser from '../../../../utils/fetchUser';
 
 import './ContestantCard.css';
-import { CoverLink } from '../../../../utils/CoverLink';
+import { CoverLink } from '../../../helper/CoverLink';
 
 export const ContestantCard = ({
   handle,

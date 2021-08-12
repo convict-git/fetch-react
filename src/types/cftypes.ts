@@ -1,4 +1,11 @@
-import { Handle } from './Handle';
+export type Handle = string;
+
+export interface User {
+  handle: Handle;
+  rank: string;
+  rating: string;
+  img: string;
+}
 
 export interface RankRow {
   handle: Handle;

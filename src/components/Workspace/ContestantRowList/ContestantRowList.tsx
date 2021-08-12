@@ -1,4 +1,5 @@
-import { RankRow } from '../../../types/Standing';
+import { RankRow } from '../../../types/cftypes';
+
 import { ContestantRow } from './ContestantRow/ContestantRow';
 
 import './ContestantRowList.css';
