@@ -1,3 +1,4 @@
+import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 
 import { fetchStanding, FetchStandingArg } from '../../utils/fetchStanding';
@@ -17,10 +18,14 @@ export const Workspace = ({
   props: WorkspaceProps;
 }): JSX.Element => {
   const state = useFetch<FetchStandingArg, Standing>(props, fetchStanding);
-  const fakeArray: Array<RankRow> = Array(props.count).fill({
-    handle: '',
-    rank: 0,
-  });
+  const fakeArray: Array<RankRow> = React.useMemo(
+    () =>
+      Array(props.count).fill({
+        handle: '',
+        rank: 0,
+      }),
+    [props.count]
+  );
 
   return (
     <div id="workspace-wrapper">
