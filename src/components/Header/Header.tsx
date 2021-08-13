@@ -12,7 +12,7 @@ export interface InputState {
   viewCards: boolean;
 }
 
-export const InputBar = ({
+export const Header = ({
   onChangeHandler,
   initState,
 }: {

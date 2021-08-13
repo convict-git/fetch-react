@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CONST } from './shared/constansts';
 
-import { InputState, InputBar } from './components/Header/Header';
+import { InputState, Header } from './components/Header/Header';
 import { Workspace, WorkspaceProps } from './components/Workspace/Workspace';
 
 import './style.css';
@@ -36,7 +36,7 @@ export const App = () => {
 
   return (
     <>
-      <InputBar onChangeHandler={onChangeHandler} initState={getInitState()} />
+      <Header onChangeHandler={onChangeHandler} initState={getInitState()} />
       <Workspace props={standingInput as WorkspaceProps} />
     </>
   );
