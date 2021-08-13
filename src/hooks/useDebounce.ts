@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useDebounce = <InputType,>(
+export const useDebounce = <InputType>(
   input: InputType,
   initValue: InputType
 ) => {
