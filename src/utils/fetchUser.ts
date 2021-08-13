@@ -1,5 +1,4 @@
-import { Handle } from '../types/Handle';
-import { User } from '../types/User';
+import { Handle, User } from '../types/cftypes';
 import { fetchRetry } from './fetchRetry';
 
 const fetchUser = async (handle: Handle): Promise<User> => {
