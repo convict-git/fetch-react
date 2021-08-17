@@ -17,7 +17,7 @@
 
 .rank-side {
   text-align: center;
-  text-shadow: 0px 0px 5px black;
+  text-shadow: 0px 0px 5px var(--dark-color);
   font-size: 2em;
 }
 
@@ -28,7 +28,7 @@
 .contestant-row-container:hover {
   background: var(--super-light-color);
   color: var(--dark-color);
-  text-shadow: 0px 0px 1px black;
+  text-shadow: 0px 0px 1px var(--dark-color);
   border: 2px solid var(--dark-color);
-  box-shadow: 0 0 8px 2px black;
+  box-shadow: 0 0 8px 2px var(--dark-color);
 }

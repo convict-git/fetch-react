@@ -65,7 +65,7 @@ export const ThemeToggle = (): JSX.Element => {
         height: '50px',
         width: '50px',
         borderRadius: '50px',
-        border: '3px solid black',
+        border: '3px solid var(--light-color)',
       }}
       onClick={handleClick}
     >
