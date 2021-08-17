@@ -6,13 +6,14 @@
   left: 0px;
   right: 0px;
   width: 100%;
-  background-color: rgb(32, 4, 68);
+  background-color: var(--dark-color);
   display: flex;
   gap: 40px;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 20px 0px 20px 0px;
-  border-bottom: 2px whitesmoke solid;
+  border-bottom: 2px var(--super-light-color) solid;
 }
 
 .input-holder {
@@ -25,9 +26,9 @@
   width: max-content;
   top: -10px;
   transform: translateX(-50%);
-  color: whitesmoke;
+  color: var(--super-light-color);
   padding: 3px;
-  background-color: rgb(32, 4, 68);
+  background-color: var(--dark-color);
 }
 
 .input-holder input::selection {
@@ -42,8 +43,8 @@
   border-radius: 20px;
   text-align: center;
   background: none;
-  color: whitesmoke;
-  border: 3px solid whitesmoke;
+  color: var(--super-light-color);
+  border: 3px solid var(--super-light-color);
 }
 
 div#seperator {
@@ -56,16 +57,16 @@ div#seperator {
 
 #show-cards-btn,
 #hide-cards-btn:hover {
-  color: rgb(32, 4, 68);
-  background: whitesmoke;
+  color: var(--dark-color);
+  background-color: var(--super-light-color);
   font-size: 1em;
   cursor: pointer;
 }
 
 #hide-cards-btn,
 #show-cards-btn:hover {
-  color: whitesmoke;
-  background: rgb(32, 4, 68);
+  background-color: var(--dark-color);
+  color: var(--super-light-color);
   font-size: 1em;
   cursor: pointer;
 }

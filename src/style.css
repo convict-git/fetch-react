@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root {
+  --super-light-color: whitesmoke;
+  --light-color: rgb(236, 235, 235);
+  --medium-color: rgb(42, 9, 85);
+  --dark-color: rgb(32, 4, 68);
+}
+
 *,
 *::after,
 *::before {
@@ -12,9 +19,9 @@
 
 body {
   /* background: linear-gradient(30deg, rgb(95, 38, 175), rgb(32, 4, 68)); */
-  background: whitesmoke;
+  background: var(--super-light-color);
   /* background: black; */
-  color: whitesmoke;
+  color: var(--super-light-color);
 }
 
 .error-state,

@@ -2,19 +2,25 @@ import React from 'react';
 
 const colors = {
   dark: {
-    'bg-color': 'rgb(32, 4, 68)',
-    'fg-color': 'whitesmoke',
+    'bg-color-1': 'rgb(32, 4, 68)',
+    'bg-color-2': 'rgb(42, 9, 85)',
+    'fg-color-2': 'rgb(236, 235, 235)',
+    'fg-color-1': 'whitesmoke',
   },
   light: {
-    'bg-color': 'whitesmoke',
-    'fg-color': 'rgb(32, 4, 68)',
+    'bg-color-1': 'whitesmoke',
+    'bg-color-2': 'rgb(236, 235, 235)',
+    'fg-color-2': 'rgb(42, 9, 85)',
+    'fg-color-1': 'rgb(32, 4, 68)',
   },
 };
 
 interface ThemeType {
   mode: 'dark' | 'light';
-  'bg-color': string;
-  'fg-color': string;
+  'bg-color-1': string;
+  'bg-color-2': string;
+  'fg-color-2': string;
+  'fg-color-1': string;
 }
 
 const ThemeContext = React.createContext(null);

@@ -6,3 +6,7 @@ export const CONST = {
   retryTime: 2000,
   viewCards: false,
 };
+
+export const changeRetryCount = (newRetryCountValue: number) => {
+  CONST.retryCount = newRetryCountValue;
+};

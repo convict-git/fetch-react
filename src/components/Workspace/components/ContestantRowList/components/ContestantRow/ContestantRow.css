@@ -3,7 +3,7 @@
   border-radius: 30px;
   height: 60px;
   overflow: hidden;
-  background: linear-gradient(rgb(32, 4, 68), rgb(43, 13, 83));
+  background: linear-gradient(var(--dark-color), var(--medium-color));
 }
 
 .contestant-row {
@@ -26,9 +26,9 @@
 }
 
 .contestant-row-container:hover {
-  background: whitesmoke;
-  color: rgb(32, 4, 68);
+  background: var(--super-light-color);
+  color: var(--dark-color);
   text-shadow: 0px 0px 1px black;
-  border: 2px solid rgb(32, 4, 68);
+  border: 2px solid var(--dark-color);
   box-shadow: 0 0 8px 2px black;
 }

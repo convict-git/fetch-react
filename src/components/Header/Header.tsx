@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { useDebounce } from '../../hooks/useDebounce';
-import { CONST } from '../../shared/constansts';
+import { CONST, changeRetryCount } from '../../shared/constansts';
+import { ThemeToggle } from './components/ThemeToggle';
 
 import './Header.css';
 
@@ -69,6 +70,19 @@ export const Header = ({
             onChange={(e) => takeProperValue(e, 'count')}
           ></input>
         </div>
+        <div className="input-holder">
+          <label htmlFor="retry-count-input">Retry Count</label>
+          <input
+            id="retry-count-input"
+            defaultValue={CONST.retryCount}
+            type="number"
+            onChange={(e) =>
+              changeRetryCount(
+                parseInt(e.target.value.trim()) || CONST.retryCount
+              )
+            }
+          ></input>
+        </div>
         <button
           className="flip-show-cards"
           id={state.viewCards ? 'show-cards-btn' : 'hide-cards-btn'}
@@ -76,6 +90,7 @@ export const Header = ({
         >
           {state.viewCards ? `Hide Cards` : `Show Cards`}
         </button>
+        <ThemeToggle />
       </div>
       <div id="seperator" />
     </>

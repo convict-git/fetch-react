@@ -5,6 +5,8 @@ import { CONST } from './shared/constansts';
 import { InputState, Header } from './components/Header/Header';
 import { Workspace, WorkspaceProps } from './components/Workspace/Workspace';
 
+import { ThemeProvider } from './context/themeContext';
+
 import './style.css';
 
 const initState: InputState = {
@@ -35,9 +37,9 @@ export const App = () => {
   }, [standingInput]);
 
   return (
-    <>
+    <ThemeProvider>
       <Header onChangeHandler={onChangeHandler} initState={getInitState()} />
       <Workspace props={standingInput as WorkspaceProps} />
-    </>
+    </ThemeProvider>
   );
 };

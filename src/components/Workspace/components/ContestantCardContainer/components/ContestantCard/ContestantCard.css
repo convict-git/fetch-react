@@ -24,7 +24,7 @@ img.card-img {
   gap: 8px;
   align-items: center;
   z-index: 2;
-  background-color: rgb(32, 4, 68);
+  background-color: var(--dark-color);
 }
 
 .rank-card-view {
@@ -39,8 +39,8 @@ img.card-img {
   text-transform: capitalize;
 }
 .card-handle {
-  background: whitesmoke;
-  color: rgb(32, 4, 68);
+  background: var(--super-light-color);
+  color: var(--dark-color);
   margin-top: -5px;
   padding: 5px 15px;
   border-radius: 20px;
@@ -64,7 +64,7 @@ img.card-img {
 }
 
 .card-holder:hover {
-  border: 2px solid rgb(32, 4, 68);
+  border: 2px solid var(--dark-color);
   box-shadow: 0 0 8px 2px black;
 }
 
