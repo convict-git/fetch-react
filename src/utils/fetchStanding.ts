@@ -1,6 +1,6 @@
 import { CONST } from '../shared/constansts';
 
-import { Handle, RankRow, Standing } from '../types/cftypes';
+import { Handle, RankRow, Standing } from '../types/codeforces-types';
 import { fetchRetry } from './fetchRetry';
 
 export interface FetchStandingArg {

@@ -1,4 +1,4 @@
-import { RankRow } from '../../../../types/cftypes';
+import { RankRow } from '../../../../types/codeforces-types';
 
 import { ContestantRow } from './components/ContestantRow/ContestantRow';
 

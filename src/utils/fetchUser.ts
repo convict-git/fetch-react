@@ -1,4 +1,4 @@
-import { Handle, User } from '../types/cftypes';
+import { Handle, User } from '../types/codeforces-types';
 import { fetchRetry } from './fetchRetry';
 
 const fetchUser = async (handle: Handle): Promise<User> => {

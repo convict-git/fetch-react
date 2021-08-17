@@ -2,7 +2,7 @@ import React from 'react';
 import { useFetch } from '../../hooks/useFetch';
 
 import { fetchStanding, FetchStandingArg } from '../../utils/fetchStanding';
-import { RankRow, Standing } from '../../types/cftypes';
+import { RankRow, Standing } from '../../types/codeforces-types';
 
 import { ContestantRowList } from './components/ContestantRowList/ContestantRowList';
 import { ContestantCardContainer } from './components/ContestantCardContainer/ContestantCardContainer';

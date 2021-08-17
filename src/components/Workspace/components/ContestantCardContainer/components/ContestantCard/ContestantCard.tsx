@@ -1,4 +1,4 @@
-import { Handle, User } from '../../../../../../types/cftypes';
+import { Handle, User } from '../../../../../../types/codeforces-types';
 
 import { useFetch } from '../../../../../../hooks/useFetch';
 
