@@ -1,6 +1,6 @@
-import { RankRow } from '../../../../types/cftypes';
+import { RankRow } from '../../../../../../types/cftypes';
 
-import { CoverLink } from '../../../helper/CoverLink';
+import { CoverLink } from '../../../../../helper/CoverLink';
 
 import './ContestantRow.css';
 

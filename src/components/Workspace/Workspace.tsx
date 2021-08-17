@@ -4,8 +4,8 @@ import { useFetch } from '../../hooks/useFetch';
 import { fetchStanding, FetchStandingArg } from '../../utils/fetchStanding';
 import { RankRow, Standing } from '../../types/cftypes';
 
-import { ContestantRowList } from './ContestantRowList/ContestantRowList';
-import { ContestantCardContainer } from './ContestantCardContainer/ContestantCardContainer';
+import { ContestantRowList } from './components/ContestantRowList/ContestantRowList';
+import { ContestantCardContainer } from './components/ContestantCardContainer/ContestantCardContainer';
 import { InputState } from '../Header/Header';
 
 import './Workspace.css';

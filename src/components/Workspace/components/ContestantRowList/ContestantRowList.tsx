@@ -1,6 +1,6 @@
-import { RankRow } from '../../../types/cftypes';
+import { RankRow } from '../../../../types/cftypes';
 
-import { ContestantRow } from './ContestantRow/ContestantRow';
+import { ContestantRow } from './components/ContestantRow/ContestantRow';
 
 import './ContestantRowList.css';
 

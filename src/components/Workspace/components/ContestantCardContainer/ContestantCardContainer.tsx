@@ -1,6 +1,6 @@
-import { RankRow } from '../../../types/cftypes';
+import { RankRow } from '../../../../types/cftypes';
 
-import { ContestantCard } from './ContestantCard/ContestantCard';
+import { ContestantCard } from './components/ContestantCard/ContestantCard';
 
 import './ContestantCardContainer.css';
 
