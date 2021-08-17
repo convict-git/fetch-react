@@ -22,7 +22,7 @@ export const fetchRetry = async (
     }
     tries = tries - 1;
     if (tries === 0) {
-      return Promise.reject(`Failed`);
+      return Promise.reject(`Failed in fetching json at ${url}`);
     }
   } while (!ok);
 };
