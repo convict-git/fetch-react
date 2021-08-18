@@ -20,7 +20,7 @@ const CacheProvider = (props: any) => {
 const useCache = () => {
   const context = React.useContext(CacheContext);
   if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
+    throw new Error('useCache must be used within CacheProvider');
   }
   return context;
 };
