@@ -8,6 +8,7 @@ import { Workspace, WorkspaceProps } from './components/Workspace/Workspace';
 import { ThemeProvider } from './context/themeContext';
 
 import './style.css';
+import { CacheProvider } from './context/cacheContext';
 
 const initState: InputState = {
   contestId: CONST.contestId,
@@ -25,12 +26,14 @@ export const App = () => {
   const [standingInput, setStandingInput] =
     React.useState<InputState>(getInitState);
 
-  function onChangeHandler(input: InputState) {
-    setStandingInput({
-      ...standingInput,
-      ...input,
+  const onChangeHandler = React.useCallback((input: InputState) => {
+    setStandingInput((prevState) => {
+      return {
+        ...prevState,
+        ...input,
+      };
     });
-  }
+  }, []);
 
   React.useEffect(() => {
     window.localStorage.setItem('initObj', JSON.stringify(standingInput));
@@ -38,8 +41,10 @@ export const App = () => {
 
   return (
     <ThemeProvider>
-      <Header onChangeHandler={onChangeHandler} initState={getInitState()} />
-      <Workspace props={standingInput as WorkspaceProps} />
+      <CacheProvider>
+        <Header onChangeHandler={onChangeHandler} initState={getInitState()} />
+        <Workspace props={standingInput as WorkspaceProps} />
+      </CacheProvider>
     </ThemeProvider>
   );
 };

@@ -30,7 +30,7 @@ export const Header = ({
       count: state.count,
       viewCards: state.viewCards,
     });
-  }, [contestId, state.from, state.count, state.viewCards]);
+  }, [contestId, state.from, state.count, state.viewCards, onChangeHandler]);
 
   function takeProperValue(
     e: React.ChangeEvent<HTMLInputElement>,
