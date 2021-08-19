@@ -10,6 +10,8 @@ import { ThemeProvider } from './context/themeContext';
 import './style.css';
 import { CacheProvider } from './context/cacheContext';
 
+import { useLocalStorage } from './hooks/useLocalStorage';
+
 const initState: InputState = {
   contestId: CONST.contestId,
   from: CONST.from,
@@ -17,17 +19,14 @@ const initState: InputState = {
   viewCards: CONST.viewCards,
 };
 
-const getInitState = (): InputState => {
-  const strObj = window.localStorage.getItem('initObj');
-  return strObj ? JSON.parse(strObj) : initState;
-};
-
 export const App = () => {
-  const [standingInput, setStandingInput] =
-    React.useState<InputState>(getInitState);
+  const [standingInput, setStandingInput] = useLocalStorage<InputState>(
+    'standingInputStorage',
+    () => initState
+  );
 
   const onChangeHandler = React.useCallback((input: InputState) => {
-    setStandingInput((prevState) => {
+    setStandingInput((prevState: InputState) => {
       return {
         ...prevState,
         ...input,
@@ -42,7 +41,7 @@ export const App = () => {
   return (
     <ThemeProvider>
       <CacheProvider>
-        <Header onChangeHandler={onChangeHandler} initState={getInitState()} />
+        <Header onChangeHandler={onChangeHandler} initState={standingInput} />
         <Workspace props={standingInput as WorkspaceProps} />
       </CacheProvider>
     </ThemeProvider>

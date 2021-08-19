@@ -57,6 +57,7 @@ div#seperator {
 
 #show-cards-btn,
 #hide-cards-btn:hover {
+  min-width: fit-content;
   color: var(--dark-color);
   background-color: var(--super-light-color);
   font-size: 1em;
@@ -65,6 +66,7 @@ div#seperator {
 
 #hide-cards-btn,
 #show-cards-btn:hover {
+  min-width: fit-content;
   background-color: var(--dark-color);
   color: var(--super-light-color);
   font-size: 1em;
