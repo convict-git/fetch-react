@@ -34,10 +34,6 @@ export const App = () => {
     });
   }, []);
 
-  React.useEffect(() => {
-    window.localStorage.setItem('initObj', JSON.stringify(standingInput));
-  }, [standingInput]);
-
   return (
     <ThemeProvider>
       <CacheProvider>

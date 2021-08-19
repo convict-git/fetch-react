@@ -3,8 +3,8 @@ import React from 'react';
 export const useLocalStorage = <DataType>(
   key: string,
   defaultValue: DataType | (() => DataType),
-  serialise: any = JSON.stringify,
-  deserialise: any = JSON.parse
+  serialise: (_: DataType) => string = JSON.stringify,
+  deserialise: (_: string) => DataType = JSON.parse
 ) => {
   const [state, useState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key);
