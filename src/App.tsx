@@ -25,14 +25,17 @@ export const App = () => {
     () => initState
   );
 
-  const onChangeHandler = React.useCallback((input: InputState) => {
-    setStandingInput((prevState: InputState) => {
-      return {
-        ...prevState,
-        ...input,
-      };
-    });
-  }, []);
+  const onChangeHandler = React.useCallback(
+    (input: InputState) => {
+      setStandingInput((prevState: InputState) => {
+        return {
+          ...prevState,
+          ...input,
+        };
+      });
+    },
+    [setStandingInput]
+  );
 
   return (
     <ThemeProvider>

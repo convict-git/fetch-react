@@ -1,20 +1,18 @@
 import React from 'react';
 
-import { Handle, User } from '../types/codeforces-types';
-
 const CacheContext = React.createContext(null);
 
-interface CacheType {
-  [key: Handle]: User | undefined;
+interface CacheType<ValueType> {
+  [key: string]: ValueType | undefined;
 }
 
-const CacheProvider = (props: any) => {
-  const cacheData = React.useRef<CacheType>({});
-  const addUser = (handle: Handle, info: User) => {
-    cacheData.current[handle] = info;
+const CacheProvider = <ValueType,>(props: any) => {
+  const cacheData = React.useRef<CacheType<ValueType>>({});
+  const updateCache = (key: string, value: ValueType) => {
+    cacheData.current[key] = value;
   };
 
-  return <CacheContext.Provider value={[cacheData, addUser]} {...props} />;
+  return <CacheContext.Provider value={[cacheData, updateCache]} {...props} />;
 };
 
 const useCache = () => {

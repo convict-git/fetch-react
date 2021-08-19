@@ -1,11 +1,14 @@
 import React from 'react';
 import { FetchReturn } from '../types/fetchReturn';
+import { useCache } from '../context/cacheContext';
 
 export function useFetch<InputType, RetType>(
   input: InputType,
-  fetchMethod: (_: InputType) => Promise<RetType>,
-  cachedValue?: RetType
+  fetchMethod: (_: InputType) => Promise<RetType>
 ): FetchReturn<RetType> {
+  const [cacheData, updateCache] = useCache();
+  const stringifiedInput = JSON.stringify(input);
+
   const [state, setState] = React.useState<FetchReturn<RetType>>({
     data: null,
     status: 'fetching',
@@ -17,10 +20,13 @@ export function useFetch<InputType, RetType>(
     let denied = false;
 
     if (!denied) {
-      if (cachedValue !== null && typeof cachedValue !== 'undefined') {
+      if (
+        cacheData.current[stringifiedInput] !== null &&
+        typeof cacheData.current[stringifiedInput] !== 'undefined'
+      ) {
         console.log(`Used cached value for ${input}`);
         setState({
-          data: cachedValue,
+          data: cacheData.current[stringifiedInput],
           status: 'ok',
           error: null,
         });
@@ -38,6 +44,8 @@ export function useFetch<InputType, RetType>(
                 status: 'ok',
                 error: null,
               });
+
+              updateCache(stringifiedInput, value);
             }
           })
           .catch((e: string) => {
@@ -55,6 +63,6 @@ export function useFetch<InputType, RetType>(
     return () => {
       denied = true;
     };
-  }, [input]);
+  }, [input, cacheData, updateCache, stringifiedInput]);
   return state;
 }

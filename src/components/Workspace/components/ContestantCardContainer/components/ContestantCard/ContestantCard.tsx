@@ -10,7 +10,6 @@ import { CoverLink } from '../../../../../helper/CoverLink';
 
 import './ContestantCard.css';
 import RETRY_IMG from '../../../../../../../static/icons8-synchronize.svg';
-import { useCache } from '../../../../../../context/cacheContext';
 
 export interface ContestantCardProps {
   handle: Handle;
@@ -25,12 +24,7 @@ const ContestantCardHelper = ({
   handle: Handle;
   rank?: number;
 }): JSX.Element => {
-  const [cacheData, addUser] = useCache();
-  const state = useFetch<Handle, User>(
-    handle,
-    fetchUser,
-    cacheData.current[handle]
-  );
+  const state = useFetch<Handle, User>(handle, fetchUser);
 
   let elem: JSX.Element;
   if (state.error) {
@@ -39,12 +33,6 @@ const ContestantCardHelper = ({
     elem = <div className="fetching-state"></div>;
   } else {
     const user = state.data;
-    if (
-      cacheData.current[handle] === null ||
-      typeof cacheData.current[handle] === 'undefined'
-    ) {
-      addUser(handle, user);
-    }
     elem = (
       <div>
         {rank ? <div className="rank-card-view">{rank}</div> : {}}
