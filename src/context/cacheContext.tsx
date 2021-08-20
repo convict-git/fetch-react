@@ -2,17 +2,22 @@ import React from 'react';
 
 const CacheContext = React.createContext(null);
 
-interface CacheType<ValueType> {
-  [key: string]: ValueType | undefined;
+interface CacheType {
+  [key: string]: string | undefined;
 }
 
-const CacheProvider = <ValueType,>(props: any) => {
-  const cacheData = React.useRef<CacheType<ValueType>>({});
-  const updateCache = (key: string, value: ValueType) => {
-    cacheData.current[key] = value;
+const CacheProvider = (props: any) => {
+  const cacheData = React.useRef<CacheType>({});
+  const stringifyHelper = (input: any): string => JSON.stringify(input);
+  const updateCache = (input: any, value: any) => {
+    cacheData.current[stringifyHelper(input)] = JSON.stringify(value);
   };
+  const getCacheData = (input: any): any =>
+    JSON.parse(cacheData.current[stringifyHelper(input)] || 'null');
 
-  return <CacheContext.Provider value={[cacheData, updateCache]} {...props} />;
+  return (
+    <CacheContext.Provider value={[getCacheData, updateCache]} {...props} />
+  );
 };
 
 const useCache = () => {
